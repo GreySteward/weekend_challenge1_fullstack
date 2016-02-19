@@ -1,6 +1,6 @@
 var express = require('express');
 var router =  express.Router();
-
+var path = require('path');
 // bring in pg module
 var pg = require('pg');
 var connectionString = '';
@@ -11,8 +11,9 @@ if(process.env.DATABASE_URL != undefined) {
 } else {
     connectionString = 'postgres://localhost:5432/payroll';
 }
-
+//
 router.post('/payroll', function(req, res) {
+    console.log("hello");
     var addPerson = {
         employee_id: req.body.employee_id,
         employee_firstname: req.body.employee_firstname,
